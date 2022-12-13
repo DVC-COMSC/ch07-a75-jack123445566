@@ -1,16 +1,19 @@
+num1 = input("Enter the elements of list num1 separated by space: ").split()
+num2 = input("Enter the elements of list num2 separated by space: ").split()
+
+num1 = [int(i) for i in num1]
+num2 = [int(i) for i in num2]
 
 
-num1 = list(map(int, input("Enter the elements of num1 separated by space: ").split()))
-num2 = list(map(int, input("Enter the elements of num2 separated by space: ").split()))
-
-
-if all(x in num2 for x in num1):
+if all(i in num2 for i in num1):
+  
+  if num2.index(num1[0]) + len(num1) <= len(num2):
     
-    for i in range(len(num1)):
-        if num1[i] != num2[i]:
-            print("False")
-            break
+    if num2[num2.index(num1[0]):num2.index(num1[0])+len(num1)] == num1:
+      print(True)
     else:
-        print("True")
+      print(False)
+  else:
+    print(False)
 else:
-    print("False")
+  print(False)
